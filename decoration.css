@@ -1,0 +1,257 @@
+@font-face {
+  font-family: 'Tangerine';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Tangerine Bold'), local('Tangerine-Bold'), url(https://fonts.gstatic.com/s/tangerine/v10/Iurd6Y5j_oScZZow4VO5srNZi5FN.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+    font-family: "Font Awesome 5 Brands";
+    font-style: normal;
+    font-weight: normal;
+    font-display:auto;src: url(fa-brands-400.eot);
+    src: url(fa-brands-400.woff2) format("woff2");
+}
+
+html, 
+body {
+	background-color: white;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	user-select: none;
+	overflow: hidden;
+	scroll-behavior: smooth;
+	perspective: 600px;
+}
+
+@media screen and (max-width: 768px){
+	body{
+		perspective: 300px;
+	}
+}
+@media(max-width: 815px) {
+  .main-label {
+  	font-size: 6em!important;
+	}
+	.tags__item {
+		font-size: 1em!important;
+		padding: 10px 0!important;
+	}
+}
+    
+
+.presentation,
+.portfolio {
+	width: 100vw;
+	height: 100vh;
+	position: fixed;
+	top: 0;
+	left: 0;
+	display: block;
+	transition: all .6s linear;
+	background: white;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+	font-size: 2.4em;
+	top: 10%;
+	left: 50%;
+	transform: translateX(-50%);
+	position: absolute;
+}
+
+.fa-vk:before {
+    content: "\f189";
+}
+.fab {
+    font-family: "Font Awesome 5 Brands";
+}
+.fab {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    line-height: 1;
+}
+
+.presentation {
+	transform-origin: right center;
+	transform: translateX(0) rotateY(0);
+	z-index: 1;
+	opacity: 1;
+}
+
+.presentation--swiped {
+	opacity: 0.5;
+    z-index: 0;
+    transform: translateX(-100%) rotateY(-35deg);
+}
+
+.portfolio {
+	transform-origin: left center;
+	transform: translateX(100%) rotateY(35deg);
+	z-index: 0;
+	opacity: 0.5;
+	position: relative;
+}
+
+.portfolio--showed {
+	opacity: 1;
+    z-index: 1;
+    transform: translateX(0) rotateY(0deg);
+}
+
+
+.footer {
+	width: 100%;
+	height: 20%;
+}
+
+.main-label {
+	text-align: center;
+	width: 100%;
+	font-family: Tangerine;
+	position: absolute;
+	top:50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-size: 9em;
+}
+
+
+
+.tags {
+	position: absolute;
+	bottom: 15%;
+	left: 50%;
+	transform: translateX(-50%);
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+
+}
+
+.tags__item {
+	margin: 0 20px;
+	font-family: Courier new;
+	font-size: 1.3em;
+	transform: translateX(-40%);
+	opacity: 0;
+}
+
+.-show {
+	transition: all 1s;
+	transform: translateX(0);
+	opacity: 1;
+}
+
+
+
+nav {
+	position: fixed;
+	height: 100%;
+    background-color: rgba(0,0,0,0.4);
+    left: 0;
+	z-index: 4;
+}
+
+.arrow-down:after {
+    content: '';
+    position: relative;
+    display: block;
+    width: 25px;
+    height: 25px;
+    border: solid white;
+    border-radius: 0 0 5px 0;
+    border-width: 0 6px 6px 0;
+    transition: transform 0.4s;
+}
+
+
+.arrow-down:after {
+	transform: rotate(-45deg);
+}
+
+.change--back:after {
+	transform: rotate(135deg);
+}
+
+
+.arrow-up:after {
+	transform: rotate(-135deg);
+}
+
+.arrow-up,
+.arrow-down {
+	margin: 20px 10px;
+	top: 50%;
+	cursor: pointer;
+	position: relative;
+}
+
+
+.layer {
+	transition: transform 0.9s linear;
+	flex-shrink: 3;
+	transform: matrix(1, 0, 0, 1, 0, 0);
+	display: flex;
+	width: 189%;
+	flex-flow: row wrap;
+	align-content: center;
+	align-items: center;
+	justify-content: center;
+	z-index:1;
+	height: fit-content;
+	padding: 20px;
+}
+
+.col {
+	background-repeat: no-repeat;
+	padding:0px;
+	top:0;
+	left:0;
+
+	background-size:cover;
+	background-position:50% 50%;
+	cursor: pointer;
+	transition: filter 1s;
+	margin:15px;
+	flex-basis: 12%;
+	overflow:hidden;
+	width:400px;
+	height: 400px;
+	filter: brightness(50%);
+	box-shadow: 0px 16px 32px rgba(0, 0, 0, 0.37);
+}
+
+.col:hover{
+	filter: brightness(100%);
+}
+
+
+.picture-shower {
+	top: 50%;
+	background-repeat: no-repeat;
+    background-size: contain;
+	background-position:50% 50%;
+	left: 50%;
+	will-change: opacity;
+	transition: all 0.5s;
+	transform: translate(-50%, -50%);
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+	opacity: 0;
+	background-color: rgba(0,0,0,0.7);
+}
+
+.picture-shower--visible {
+	opacity: 1;
+	z-index: 4;
+}
